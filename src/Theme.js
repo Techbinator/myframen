@@ -89,7 +89,7 @@ export default {
 
     // Font
     fontFamily: (Platform.OS === 'ios' ) ? 'HelveticaNeue' : 'Roboto',
-    fontSizeBase: 15,
+    fontSizeBase: 11,
 
     get fontSizeH1 () {
         return this.fontSizeBase*1.8;
@@ -108,7 +108,7 @@ export default {
 
 
     //FooterTab
-    tabBarTextColor: (Platform.OS === 'ios' ) ? '#6b6b6b' : '#b3c7f9',
+    tabBarTextColor: (Platform.OS === 'ios' ) ? '#6b6b6b' : '#6b6b6b',
     tabBarActiveTextColor: (Platform.OS === 'ios' ) ? '#ff8900' : '#ff8900',
     tabActiveBgColor: (Platform.OS=='ios') ? '#2B2B2B' : '#2B2B2B',
 

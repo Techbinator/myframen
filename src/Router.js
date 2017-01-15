@@ -1,15 +1,21 @@
 import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
+import { StatusBar } from 'react-native';
 import MyPhotos from './components/pages/myphotos';
-import Layout from './components/layout';
+
+import { connect } from 'react-redux';
+
+const RouterWithRedux = connect()(Router);
+
 
 const RouterComponent = () => {
+  StatusBar.setBarStyle('light-content', true);
   return (
-    <Router hideNavBar sceneStyle={{ paddingTop: 65 }}>
-      <Scene key="main" component={Layout}>
+    <RouterWithRedux hideNavBar>
+      <Scene key="main">
         <Scene key="MyPhotos" component={MyPhotos} title="My photos" initial />
       </Scene>
-    </Router>
+    </RouterWithRedux>
   );
 };
 

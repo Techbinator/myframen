@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
 import { Container, Content, Footer } from 'native-base';
 import theme from '../../Theme';
-import FooterLayout from './Footer';
+import FooterLayout from './sub/footer';
 
 
 export default class Layout extends Component {
 
   render() {
     return (
-      <Container theme={theme}>
+      <Container theme={theme} style={styles.layout}>
         <Content>
-          <Text>Testtttt</Text>
+          {this.props.children}
         </Content>
         <Footer theme={theme}>
           <FooterLayout />
@@ -20,3 +19,9 @@ export default class Layout extends Component {
     );
   }
 }
+const styles = {
+   layout: {
+    backgroundColor: '#2B2B2B',
+    paddingTop: 15
+  }
+};
