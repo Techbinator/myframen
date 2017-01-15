@@ -11,15 +11,24 @@ class FooterLayout extends Component {
   render() {
     return (
       <FooterTab>
-        <Button active={this.props.routes.scene.sceneKey === 'Inspiration'}>
+        <Button
+          onPress={Actions.Inspiration}
+          active={this.props.routes.scene.sceneKey === 'Inspiration'}
+        >
           Inspiration
           <Icon name="ios-aperture-outline" />
         </Button>
-        <Button active={this.props.routes.scene.sceneKey === 'Favorites'}>
+        <Button
+          onPress={Actions.Favorites}
+          active={this.props.routes.scene.sceneKey === 'Favorites'}
+        >
           Favorites
           <Icon name="ios-heart" />
         </Button>
-        <Button active={this.props.routes.scene.sceneKey === 'MyPhotos'}>
+        <Button
+          onPress={Actions.MyPhotos} 
+          active={this.props.routes.scene.sceneKey === 'MyPhotos'}
+        >
           My Photos
           <Icon name="ios-images" />
         </Button>

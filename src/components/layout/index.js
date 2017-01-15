@@ -22,6 +22,6 @@ export default class Layout extends Component {
 const styles = {
    layout: {
     backgroundColor: '#2B2B2B',
-    paddingTop: 15
+    paddingTop: 20,
   }
 };
