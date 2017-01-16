@@ -12,9 +12,7 @@ export default class Layout extends Component {
         <Content>
           {this.props.children}
         </Content>
-        <Footer theme={theme}>
-          <FooterLayout />
-        </Footer>
+
       </Container>
     );
   }
