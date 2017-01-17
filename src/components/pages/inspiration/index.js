@@ -29,7 +29,7 @@ const cards = [
 const filters = [
   {
     title: 'All',
-    active: true
+    active: false
   },
   {
     title: 'New',
@@ -37,7 +37,7 @@ const filters = [
   },
   {
     title: 'Moments',
-    active: false
+    active: true
   },
   {
     title: 'Shared',
@@ -55,7 +55,7 @@ export default class MyPhotos extends Component {
       <Layout>
         <Search />
         <Filters data={filters} />
-        <ImageCards data={cards} />  
+        <ImageCards data={cards} />
       </Layout>
     );
   }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Icon, Card, CardItem, Text, Spinner } from 'native-base';
-import { View, Image } from 'react-native';
+import { Icon, Card, CardItem, Text } from 'native-base';
+import { View, Image, TouchableOpacity } from 'react-native';
 
 export default class ImageCards extends Component {
   render() {
@@ -10,8 +10,7 @@ export default class ImageCards extends Component {
         dataArray={this.props.data} renderRow={(card) =>
           ImageCard(card)
         }
-      >
-      </Card>
+      />
     );
   }
 }
@@ -23,11 +22,18 @@ const ImageCard = (card) => (
         <Text style={styles.leftText}>{card.leftText}</Text>
         <Text style={styles.rightText}>{card.rightText}</Text>
       </View>
-
       <Image
         style={{ resizeMode: 'cover', width: null }}
         source={{ uri: card.image }}
-      />
+      >
+      <TouchableOpacity style={styles.TouchableOpacity}>
+        <Icon
+          name={card.selected ? 'ios-heart' : 'ios-heart-outline'}
+          style={card.selected ? styles.cardSelected : styles.cardNotSelected}
+        />
+      </TouchableOpacity>
+     </Image>
+
     </CardItem>
 );
 
@@ -55,5 +61,19 @@ const styles = {
     color: '#797d7e',
     fontSize: 12,
     marginRight: 10
+  },
+  TouchableOpacity: {
+    position: 'absolute',
+    bottom: 5,
+    right: 15,
+    backgroundColor: 'transparent',
+  },
+  cardSelected: {
+    color: '#ff8900',
+    fontSize: 35
+  },
+  cardNotSelected: {
+    color: '#797d7e',
+    fontSize: 35
   }
 };

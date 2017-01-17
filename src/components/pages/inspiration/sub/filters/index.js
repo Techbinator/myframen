@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 export default class Filters extends Component {
   render() {
     return (
         <View style={styles.filtersContainer}>
           {this.props.data.map((filterData, key) => {
-            let selectedStyle = filterData.active ? styles.filterSelected : styles.filter;
-            key !== 0 && delete selectedStyle.borderRadius;
-            return Filter(filterData, key, selectedStyle)
+            const selectedStyle = filterData.active ? styles.filterSelected : styles.filter;
+            return Filter(filterData, key, selectedStyle);
           })}
         </View>
     );
@@ -16,7 +15,9 @@ export default class Filters extends Component {
 }
 
 const Filter = (filter, key, selectedStyle) => (
-  <Text style={selectedStyle} key={key}>{filter.title}</Text>
+  <TouchableOpacity key={key}>
+    <Text style={selectedStyle}>{filter.title}</Text>
+  </TouchableOpacity>
 );
 
 const styles = {
@@ -26,7 +27,6 @@ const styles = {
   },
   filter: {
     borderColor: '#ff8900',
-    borderRadius: 4,
     borderStyle: 'solid',
     padding: 10,
     color: '#ff8900',
@@ -34,7 +34,6 @@ const styles = {
   },
   filterSelected: {
     borderColor: '#ff8900',
-    borderRadius: 4,
     borderStyle: 'solid',
     padding: 10,
     color: '#FFFFFF',
