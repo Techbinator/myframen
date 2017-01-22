@@ -8,7 +8,7 @@ export default class Layout extends Component {
 
   render() {
     return (
-      <Container theme={theme} style={styles.layout}>
+      <Container theme={theme} style={this.props.header ? styles.layoutWithHeader : styles.layout}>
         <Content>
           {this.props.children}
         </Content>
@@ -20,5 +20,9 @@ const styles = {
    layout: {
     backgroundColor: '#2B2B2B',
     paddingTop: 20,
+  },
+  layoutWithHeader: {
+    backgroundColor: '#2B2B2B',
+    paddingTop: 70,
   }
 };

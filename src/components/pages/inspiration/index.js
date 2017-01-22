@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Layout from '../../layout';
 import Search from './sub/search';
 import ImageCards from './sub/cards';
-import Filters from './sub/filters';
+import Filters from '../../common/filters';
 
 //dummy data to be removed
 const cards = [
@@ -47,14 +47,19 @@ const filters = [
     title: 'Others',
     active: false
   }
-]
+];
 
 export default class MyPhotos extends Component {
+
+  filterOnClick(e) {
+
+  }
+
   render() {
     return (
       <Layout>
         <Search />
-        <Filters data={filters} />
+        <Filters data={filters} filterOnClick={this.filterOnClick.bind(this)} />
         <ImageCards data={cards} />
       </Layout>
     );
