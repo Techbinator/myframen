@@ -14,9 +14,9 @@ const RouterComponent = () => {
   return (
     <RouterWithRedux hideNavBar>
       <Scene key="tabBar" tabs tabBarStyle={style.tabBarStyle}>
-        <Scene key="Inspiration" component={Inspiration} title="Inspiration" initial icon={FooterTabLayout} />
+        <Scene key="Inspiration" component={Inspiration} title="Inspiration" icon={FooterTabLayout} />
         <Scene key="Favorites" component={MyPhotos} title="Favorites" icon={FooterTabLayout} />
-        <Scene key="MyPhotos" component={MyPhotos} title="My photos" icon={FooterTabLayout} />
+        <Scene key="MyPhotos" component={MyPhotos} title="My photos" icon={FooterTabLayout} initial />
         <Scene key="Playlist" component={Inspiration} title="Playlist" icon={FooterTabLayout} />
         <Scene key="Chats" component={Inspiration} title="Chats" icon={FooterTabLayout} />
       </Scene>

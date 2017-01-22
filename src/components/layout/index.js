@@ -12,7 +12,6 @@ export default class Layout extends Component {
         <Content>
           {this.props.children}
         </Content>
-
       </Container>
     );
   }
