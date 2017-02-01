@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Layout from '../../layout';
-import Filters from '../../common/filters';
 
 const filters = [
   {
@@ -26,7 +25,7 @@ export default class Playlist extends Component {
   render() {
     return (
       <Layout header>
-        <Filters data={filters} filterOnClick={this.filterOnClick.bind(this)} />
+
       </Layout>
     );
   }
