@@ -1,3 +1,3 @@
-export const IMAGES_CATEGORY_CREATE = 'images_category_create';
-export const IMAGES_CATEGORY_UPDATE = 'images_category_update';
-export const IMAGES_CATEGORY_DELETE = 'images_category_delete';
+export const LAYOUT_CREATE = 'layout_create';
+export const LAYOUT_UPDATE = 'layout_update';
+export const LAYOUT_DELETE = 'layout_delete';

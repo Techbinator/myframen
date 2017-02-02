@@ -20,7 +20,7 @@ const RouterComponent = () => {
         <Scene key="Inspiration" component={Inspiration} title="Inspiration" icon={FooterTabLayout} />
         <Scene key="Favorites" component={MyPhotos} title="Favorites" icon={FooterTabLayout} />
         <Scene key="MyPhotos" component={MyPhotos} title="My photos" icon={FooterTabLayout} />
-        <Scene key="PlaylistHolder" title="Playlist" icon={FooterTabLayout} initial>
+        <Scene key="PlaylistHolder" title="Playlist" icon={FooterTabLayout} initial barButtonIconStyle={{ tintColor: '#FF8900' }}>
           <Scene
             key="Playlist"
             component={Playlist}

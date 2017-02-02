@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import { List, ListItem, InputGroup, Input, Icon, Text, Picker, Button,Item } from 'native-base';
+import {View, Picker} from 'react-native';
+import { List, ListItem, InputGroup, Input, Icon, Text, Button, Row } from 'native-base';
+import {Slider, H4} from 'nachos-ui';
 import Layout from '../../../../layout';
 
 export default class NewPlaylist extends Component {
 
-
+  state = {
+     sliderValue: 2,
+     sliderMaxValue: 30,
+     sliderAnimation: 'random'
+   }
 
   render() {
 
@@ -14,48 +20,54 @@ export default class NewPlaylist extends Component {
         <List>
           <ListItem>
               <InputGroup>
-                  <Input inlineLabel label="First Name" placeholder="John" />
+                  <Icon name="ios-images" style={styles.icon}/>
+                  <Input style={styles.text} placeholder="Playlist name" />
               </InputGroup>
           </ListItem>
 
           <ListItem>
-              <InputGroup>
-                  <Icon name="ios-person" style={{ color: '#0A69FE' }} />
-                  <Input placeholder="EMAIL" />
-              </InputGroup>
-          </ListItem>
-          <ListItem>
-              <InputGroup>
-                  <Icon name="ios-unlock" style={{ color: '#0A69FE' }} />
-                  <Input placeholder="PASSWORD" secureTextEntry />
-              </InputGroup>
-          </ListItem>
-          <ListItem>
-              <InputGroup>
-                  <Icon name="ios-call" style={{ color: '#0A69FE' }} />
-                  <Input placeholder="PHONE" keyboardType="numeric" />
-              </InputGroup>
+            <View>
+              <Text style={styles.text}>Time between slides: {this.state.sliderValue.toFixed(2)} sec</Text>
+                <Slider
+                  maxValue={this.state.sliderMaxValue}
+                  value={this.state.sliderValue}
+                  onValueChange={(time) => this.setState({sliderValue: time})}
+                  style={styles.slider}
+                />
+            </View>
           </ListItem>
 
-          <ListItem iconLeft>
-              <Icon name="ios-transgender" style={{ color: '#0A69FE' }} />
-              <Text>GENDER</Text>
-              <Picker
-                iosHeader="Select one"
-                mode="dropdown" >
-                  <Item label="Male" value="key0" />
-                  <Item label="Female" value="key1" />
-                  <Item label="Other" value="key2" />
+          <ListItem>
+            <View>
+              <Text style={styles.text}>Slider type</Text>
+              <Picker style={styles.picker}
+                selectedValue={this.state.sliderAnimation}
+                onValueChange={(sa) => this.setState({sliderAnimation: sa})}>
+                <Picker.Item label="Random" value="random" />
+                <Picker.Item label="Fade Out" value="fadeout" />
+                <Picker.Item label="Fade In" value="fadein" />
               </Picker>
-          </ListItem>
-
-          <ListItem>
-              <InputGroup >
-                  <Input stackedLabel label="Permanent Address" placeholder="Address" />
-              </InputGroup>
+            </View>
           </ListItem>
       </List>
     </Layout>
     );
+  }
+}
+
+const styles = {
+  icon: {
+    color: '#ff8900',
+  },
+  text: {
+    fontSize: 18,
+    marginBottom:10
+  },
+  slider: {
+    alignSelf:'center'
+  },
+  picker: {
+    color: '#ff8900',
+    alignSelf:'stretch',
   }
 }

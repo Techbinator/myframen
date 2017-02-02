@@ -9,6 +9,7 @@
   "dependencies": {
     "eslint-config-rallycoding": "^3.2.0",
     "lodash": "^4.17.4",
+    "nachos-ui": "^0.1.0",
     "native-base": "^0.5.21",
     "react": "15.4.2",
     "react-addons-create-fragment": "^15.4.2",
