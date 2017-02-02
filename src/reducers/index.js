@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import ImageCategories from './ImageCategories';
+import Playlists from './Playlists';
 import routes from './Routes';
+import Layout from './Layout';
 
 export default combineReducers({
-  ImageCategories,
-  routes
+  Playlists,
+  routes,
+  Layout,
 });

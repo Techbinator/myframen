@@ -13,7 +13,7 @@ export default (state = INITIAL_STATE, action) => {
     case LAYOUT_CREATE:
       return { ...state, [action.payload.prop]: action.payload.value };
     case LAYOUT_UPDATE:
-      return { ...state, action.payload.prop: action.payload.value };
+      return { ...state, [action.payload.prop]: action.payload.value };
     case LAYOUT_DELETE:
       return INITIAL_STATE;
     default:
