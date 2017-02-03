@@ -1,7 +1,6 @@
 import React from 'react';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import { StatusBar } from 'react-native';
-import { Icon } from 'native-base';
 import { connect } from 'react-redux';
 import MyPhotos from './components/pages/myphotos';
 import Inspiration from './components/pages/inspiration';

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Container, View, Footer } from 'native-base';
+import { Container, View, Content } from 'native-base';
 import theme from '../../Theme';
-import FooterLayout from './sub/footer';
 
 
 export default class Layout extends Component {

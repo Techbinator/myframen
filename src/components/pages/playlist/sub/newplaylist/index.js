@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {View, Picker} from 'react-native';
-import { List, ListItem, InputGroup, Input, Icon, Text, Button, Row } from 'native-base';
-import {Slider, H4} from 'nachos-ui';
+import { View, Picker } from 'react-native';
+import { List, ListItem, InputGroup, Input, Icon, Text } from 'native-base';
+import { Slider } from 'nachos-ui';
+import { Actions } from 'react-native-router-flux';
 import Layout from '../../../../layout';
 
 export default class NewPlaylist extends Component {
@@ -13,15 +14,13 @@ export default class NewPlaylist extends Component {
    }
 
   render() {
-
-
     return (
       <Layout header>
         <List>
           <ListItem>
               <InputGroup>
-                  <Icon name="ios-images" style={styles.icon}/>
-                  <Input style={styles.text} placeholder="Playlist name" />
+                  <Icon name="ios-images" style={styles.icon} />
+                  <Input style={styles.text} placeholder="Playlist name" onChangeText={ (text) => Actions.refresh({title: text})}/>
               </InputGroup>
           </ListItem>
 
@@ -41,6 +40,7 @@ export default class NewPlaylist extends Component {
             <View>
               <Text style={styles.text}>Slider type</Text>
               <Picker style={styles.picker}
+                itemStyle={styles.iosItemStyle}
                 selectedValue={this.state.sliderAnimation}
                 onValueChange={(sa) => this.setState({sliderAnimation: sa})}>
                 <Picker.Item label="Random" value="random" />
@@ -67,7 +67,9 @@ const styles = {
     alignSelf:'center'
   },
   picker: {
-    color: '#ff8900',
     alignSelf:'stretch',
+  },
+  iosItemStyle: {
+    color: '#ffffff'
   }
 }
