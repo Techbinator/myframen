@@ -5,12 +5,7 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  id: 1,
-  name:'',
-  timeSlides: 2,
-  sliderType: 'random',
-  images: [],
-  status: 'enabled'
+  playlists: []
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -18,8 +13,12 @@ export default (state = INITIAL_STATE, action) => {
     case PLAYLISTS_CREATE:
       return {
         ...state,
-        [action.payload.prop]: action.payload.value
+        ['playlists']: [
+          ...state['playlists'],
+          action.payload.value
+        ]
       };
+      return INITIAL_STATE;
     case PLAYLISTS_UPDATE:
       return {
         ...state,

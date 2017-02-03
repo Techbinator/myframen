@@ -21,7 +21,7 @@ const RouterComponent = () => {
         <Scene key="MyPhotos" component={MyPhotos} title="My photos" icon={FooterTabLayout} />
         <Scene key="PlaylistHolder" title="Playlist" icon={FooterTabLayout} initial barButtonIconStyle={{ tintColor: '#FF8900' }}>
           <Scene
-            key="Playlist"
+            key="Playlists"
             component={Playlist}
             title="Playlist"
             icon={FooterTabLayout}
@@ -36,9 +36,10 @@ const RouterComponent = () => {
           <Scene
             key="NewPlaylist"
             component={newPlaylist}
-            title="New playlist"
+            title="Playlist name"
             icon={FooterTabLayout}
             hideNavBar={false}
+            rightButtonTextStyle={styles.rightButton}
             navigationBarStyle={styles.navigationBarStyle}
             titleStyle={styles.titleStyle}
           />

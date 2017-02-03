@@ -4,7 +4,7 @@ import {
   PLAYLISTS_DELETE
 } from './types';
 
-export const playlistCreate = ({ prop, value }) => {
+export const playlistCreate = ( prop, value) => {
   return {
     type: PLAYLISTS_CREATE,
     payload: { prop, value }

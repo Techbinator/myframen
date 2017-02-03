@@ -1,2 +1,2 @@
-export * from './ImagesCategories'
+export * from './Playlists'
 export * from './Layout'

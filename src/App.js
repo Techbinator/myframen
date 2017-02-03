@@ -4,6 +4,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import {AsyncStorage} from 'react-native';
+import { composeWithDevTools } from 'remote-redux-devtools'
 import reducers from './reducers';
 import Router from './Router';
 import Settings from './json/settings';
@@ -11,9 +12,8 @@ import Settings from './json/settings';
 export default class App extends Component {
 
   render() {
-    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-    const enhancer = compose(
+    const enhancer = composeWithDevTools(
       applyMiddleware(ReduxThunk),
       autoRehydrate()
     );
