@@ -42,19 +42,24 @@ export default class NewPlaylist extends Component {
 
         <Layout header>
           <View>
-              <DeckSwiper
-                dataSource={this.state.images}
-                renderItem={ image =>
-                    <Card style={{ elevation: 1}}>
-                        <CardItem>
-                          <Image
-                            style={{ resizeMode: 'cover', width: null }}
-                            source={{ uri: image.uri }}
-                          />
-                        </CardItem>
-                    </Card>
-                }
-              />
+            <View style={{ flex: 1}}>
+                <DeckSwiper
+                  dataSource={this.state.images}
+                  renderItem={ image =>
+                      <Card style={{ elevation: 1}}>
+                          <CardItem>
+                            <Image
+                              style={{ resizeMode: 'cover', width: null }}
+                              source={{ uri: image.uri }}
+                            />
+                          </CardItem>
+                      </Card>
+                  }
+                />
+              </View>
+              <View style={{ flex: 1}}>
+                <Text>Cacattttt</Text>
+              </View>
           </View>
         </Layout>
 

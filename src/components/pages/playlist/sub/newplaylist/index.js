@@ -33,7 +33,7 @@ class NewPlaylist extends Component {
 
    savePlaylist(){
       this.props.playlistCreate('playlists', this.preparePlaylistCreate(this.props.playlists, this.state));
-      Actions.Playlist();
+      Actions.pop();
    }
 
    setSliderName(playlistName){
