@@ -19,9 +19,11 @@ const styles = {
    layout: {
     backgroundColor: '#2B2B2B',
     paddingTop: 20,
+    paddingBottom: 20,
   },
   layoutWithHeader: {
     backgroundColor: '#2B2B2B',
     paddingTop: 70,
+    paddingBottom: 50,
   }
 };

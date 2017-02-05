@@ -23,7 +23,7 @@ const RouterComponent = () => {
           <Scene
             key="Playlists"
             component={Playlist}
-            title="Playlist"
+            title="Playlists"
             icon={FooterTabLayout}
             initial
             hideNavBar={false}

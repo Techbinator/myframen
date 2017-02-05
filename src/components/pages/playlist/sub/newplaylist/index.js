@@ -15,6 +15,22 @@ class NewPlaylist extends Component {
      playlistName: 'Playlist name',
      playlistSlideTimeout: 2,
      playlistAnimation: 'random',
+     photos: [
+       'https://unsplash.it/200/300/?random',
+       'https://unsplash.it/200/300/?random',
+       'https://unsplash.it/200/300/?random',
+       'https://unsplash.it/200/300/?random',
+       'https://unsplash.it/200/300/?random',
+       'https://unsplash.it/200/300/?random',
+       'https://unsplash.it/200/300/?random',
+       'https://unsplash.it/200/300/?random',
+       'https://unsplash.it/200/300/?random',
+       'https://unsplash.it/200/300/?random',
+       'https://unsplash.it/200/300/?random',
+       'https://unsplash.it/200/300/?random',
+       'https://unsplash.it/200/300/?random',
+     ],
+     type: 'user',
      active: false,
    }
 
