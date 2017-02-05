@@ -194,14 +194,14 @@ export default {
 
 
     // Spinner
-    defaultSpinnerColor: '#45D56E',
-    inverseSpinnerColor: '#1A191B',
+    defaultSpinnerColor: '#ff8900',
+    inverseSpinnerColor: '#ff8900',
 
 
     // Tabs
-    tabBgColor: '#F8F8F8',
+    tabBgColor: '#2B2B2B',
     tabFontSize: 15,
-    tabTextColor: '#222222',
+    tabTextColor: '#ff8900',
 
 
     // Text

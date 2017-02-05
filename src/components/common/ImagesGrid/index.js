@@ -10,8 +10,6 @@ import {
 
 const {width, height} = Dimensions.get('window');
 
-import SingleImage from './single-image';
-
 export default class ImagesGrid extends Component {
 
 
@@ -27,7 +25,7 @@ export default class ImagesGrid extends Component {
             case 1:
                 return (
                     <View style={styles.imageContainer}>
-                        <SingleImage image={{uri: images[0]}} />
+                        <Image style={styles.img} source={{uri:images[0]}}/>
                     </View>
                 );
                 break;

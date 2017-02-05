@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { CameraRoll, Image, Text } from 'react-native';
-import { DeckSwiper, Card, CardItem, View } from 'native-base';
-import Carousel from 'react-native-snap-carousel';
+import { CameraRoll } from 'react-native';
+import { View, Tabs,  Spinner } from 'native-base';
+import Swipe from './sub/swipe';
 
 import Layout from '../../layout';
 
-export default class NewPlaylist extends Component {
+export default class MyPhotos extends Component {
 
   constructor(props) {
     super(props);
@@ -34,46 +34,29 @@ export default class NewPlaylist extends Component {
   render() {
     if (!this.state.isCameraLoaded) {
       return (
-        <View>
-          <Text>Loading ...</Text>
+        <View style={styles.spinnerContainer}>
+          <Spinner color="#ff8900"/>
         </View>
         );
     }
 
     return (
 
-        <Layout header>
-            <View style={{ flex: 1}}>
-                <DeckSwiper
-                  dataSource={this.state.images}
-                  renderItem={ image =>
-                      <Card style={{ elevation: 1}}>
-                          <CardItem>
-                            <Image
-                              style={{ resizeMode: 'cover', width: null }}
-                              source={{ uri: image.uri }}
-                            />
-                          </CardItem>
-                      </Card>
-                  }
-                />
-              </View>
-              <Carousel
-                itemWidth={200}
-                sliderWidth={1000}
-                ref={'carousel'}>
-                <View>
-                  <Text>aaaaaa</Text>
-                </View>
-                <View>
-                  <Text>bbbbbb</Text>
-                </View>
-                <View>
-                  <Text>cccccc</Text>
-                </View>
-              </Carousel>
+        <Layout>
+          <Tabs>
+            <Swipe tabLabel='Swipe' images={this.state.images} />
+            <Swipe tabLabel='Select' images={this.state.images}/>
+          </Tabs>
         </Layout>
 
     );
+  }
+}
+
+const styles = {
+  spinnerContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 }
