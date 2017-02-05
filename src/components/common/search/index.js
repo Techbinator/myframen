@@ -8,7 +8,7 @@ export default class Search extends Component {
       <View style={styles.View}>
         <InputGroup borderType='rounded' >
             <Icon name='ios-search' style={styles.icon} />
-            <Input placeholder='Search Playlist, Person, etc.' style={styles.input} />
+            <Input placeholder={this.props.placeholder} style={styles.input} onChangeText={ this.props.onChangeText.bind(this)} />
         </InputGroup>
       </View>
     );

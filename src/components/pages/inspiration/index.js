@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Layout from '../../layout';
-import Search from './sub/search';
+import Search from '../../common/search';
 import ImageCards from './sub/cards';
 import Filters from '../../common/filters';
 
@@ -29,23 +29,28 @@ const cards = [
 const filters = [
   {
     title: 'All',
-    active: false
+    active: false,
+    key: 'all'
   },
   {
     title: 'New',
-    active: false
+    active: false,
+    key: 'new'
   },
   {
     title: 'Moments',
-    active: true
+    active: true,
+    key: 'moments'
   },
   {
     title: 'Shared',
-    active: false
+    active: false,
+    key: 'shared'
   },
   {
     title: 'Others',
-    active: false
+    active: false,
+    key: 'others'
   }
 ];
 
@@ -55,10 +60,14 @@ export default class MyPhotos extends Component {
 
   }
 
+  onSearchChange(data){
+    console.log(data);
+  }
+
   render() {
     return (
       <Layout>
-        <Search />
+        <Search placeholder="Search images ..." onChangeText={this.onSearchChange.bind(this)}/>
         <Filters data={filters} filterOnClick={this.filterOnClick.bind(this)} />
         <ImageCards data={cards} />
       </Layout>

@@ -30,7 +30,7 @@ class NewPlaylist extends Component {
        'https://unsplash.it/200/300/?random',
        'https://unsplash.it/200/300/?random',
      ],
-     type: 'user',
+     type: 'my_photos',
      active: false,
    }
 

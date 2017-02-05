@@ -17,15 +17,12 @@ export default class ImagesGrid extends Component {
 
     renderImages() {
         const { images } = this.props;
+
+        if(!images){
+          return null;
+        }
         const imageCount = images.length;
         switch(imageCount) {
-            case 0:
-              return (
-                  <View style={styles.imageContainer}>
-                      <SingleImage image={{uri: 'http://www.autotime.ro/public/images/noimage.jpg'}} />
-                  </View>
-              );
-              break;
             //1 image
             case 1:
                 return (
@@ -131,9 +128,6 @@ export default class ImagesGrid extends Component {
         const {title, images} = this.props;
         return (
             <View style={styles.container}>
-                <View style={styles.textContainer}>
-                    <Text style={styles.text}>{title}</Text>
-                </View>
                 {this.renderImages()}
             </View>
         )
@@ -143,8 +137,7 @@ export default class ImagesGrid extends Component {
 const styles = {
 
   container:{
-    marginTop:10,
-    padding:10,
+
   },
   imageContainer: {
       height: height/2.5,
@@ -159,6 +152,6 @@ const styles = {
       paddingBottom: 8,
   },
   text: {
-    color: '#ffffff'
+    color: '#797d7e'
   }
 };

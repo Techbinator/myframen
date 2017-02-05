@@ -4,18 +4,18 @@ import { View, Text, TouchableOpacity } from 'react-native';
 export default class Filters extends Component {
   render() {
     return (
-        <View style={styles.filtersContainer}>
-          {this.props.data.map((filterData, key) => {
+        <View style={styles.filtersContainer} on>
+          {this.props.data.map((filterData) => {
             const selectedStyle = filterData.active ? styles.filterSelected : styles.filter;
-            return Filter(filterData, key, selectedStyle);
+            return Filter(this.props.filterOnClick.bind(this), filterData, selectedStyle);
           })}
         </View>
     );
   }
 }
 
-const Filter = (filter, key, selectedStyle) => (
-  <TouchableOpacity key={key}>
+const Filter = (filterOnClick, filter, selectedStyle) => (
+  <TouchableOpacity key={filter.key} onPress={filterOnClick.bind(this, filter.key)}>
     <Text style={selectedStyle}>{filter.title}</Text>
   </TouchableOpacity>
 );

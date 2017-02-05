@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { CameraRoll, Image, Text } from 'react-native';
-import { DeckSwiper, Card, CardItem, View,Container  } from 'native-base';
+import { DeckSwiper, Card, CardItem, View } from 'native-base';
+import Carousel from 'react-native-snap-carousel';
+
 import Layout from '../../layout';
 
 export default class NewPlaylist extends Component {
@@ -41,7 +43,6 @@ export default class NewPlaylist extends Component {
     return (
 
         <Layout header>
-          <View>
             <View style={{ flex: 1}}>
                 <DeckSwiper
                   dataSource={this.state.images}
@@ -57,10 +58,20 @@ export default class NewPlaylist extends Component {
                   }
                 />
               </View>
-              <View style={{ flex: 1}}>
-                <Text>Cacattttt</Text>
-              </View>
-          </View>
+              <Carousel
+                itemWidth={200}
+                sliderWidth={1000}
+                ref={'carousel'}>
+                <View>
+                  <Text>aaaaaa</Text>
+                </View>
+                <View>
+                  <Text>bbbbbb</Text>
+                </View>
+                <View>
+                  <Text>cccccc</Text>
+                </View>
+              </Carousel>
         </Layout>
 
     );
