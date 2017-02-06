@@ -3,6 +3,7 @@ import { Image, ScrollView, Text, StyleSheet } from 'react-native';
 import { View } from 'native-base';
 import Carousel from 'react-native-snap-carousel';
 import SwipeCards from 'react-native-swipe-cards';
+import _ from 'lodash';
 
 import sliderEntryStyles, { sliderWidth, itemWidth } from './SliderEntry.style';
 import SliderEntry from './SliderEntry';
@@ -11,11 +12,16 @@ import styles from './index.style';
 
 export default class Swipe extends Component {
 
+    state = {
+      selectedPlaylist: 0,
+    }
+
     getSlides() {
           return this.props.playlists.map((entry, index) => {
               return (
                   <SliderEntry
-                    key={`carousel-entry-${index}`}
+                    key={entry.id}
+                    cardKey={entry.id}
                     even={(index + 1) % 2 === 0}
                     title={entry.playlistName}
                     images={entry.photos}
@@ -29,7 +35,7 @@ export default class Swipe extends Component {
         <Carousel
           sliderWidth={sliderWidth}
           itemWidth={itemWidth}
-          firstItem={1}
+          firstItem={0}
           inactiveSlideScale={0.94}
           inactiveSlideOpacity={0.6}
           enableMomentum={true}
@@ -38,14 +44,16 @@ export default class Swipe extends Component {
           showsHorizontalScrollIndicator={false}
           snapOnAndroid={true}
           removeClippedSubviews={false}
+          onSnapToItem={(entry) => this.setState({'selectedPlaylist': entry })}
         >
             { this.getSlides() }
         </Carousel>
     );
 }
 
-handleYup(){
-
+handleYup(card){
+  const selectedDataId = this.props.playlists[this.state.selectedPlaylist].id;
+  console.log(selectedDataId);
 }
 
 handleNope(){
@@ -62,7 +70,7 @@ handleNope(){
             renderCard={(image) => <Image style={{height:300, width: sliderWidth, marginBottom:20}} source={{ uri: image.uri }} />}
             renderNoMoreCards={() => <Text>No more cards</Text>}
 
-            handleYup={this.handleYup}
+            handleYup={this.handleYup.bind(this)}
             handleNope={this.handleNope}
           />
         </View>

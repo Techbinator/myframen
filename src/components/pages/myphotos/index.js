@@ -3,6 +3,7 @@ import { CameraRoll } from 'react-native';
 import { View, Spinner } from 'native-base';
 import { connect } from 'react-redux';
 import Swipe from './sub/swipe';
+import _ from 'lodash';
 
 import Layout from '../../layout';
 
@@ -52,7 +53,7 @@ class MyPhotos extends Component {
 }
 
 export default connect(
-  state => ({ playlists: state.Playlists.playlists }))(MyPhotos);
+  state => ({ playlists: _.orderBy(state.Playlists.playlists, ['id'], ['desc']) }))(MyPhotos);
 
 const styles = {
   spinnerContainer: {
