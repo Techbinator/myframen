@@ -37,7 +37,8 @@ class MyPhotos extends Component {
 
   handleYup(image){
     const selectedDataId = this.props.playlists[this.state.selectedPlaylist].id;
-    // this.props.playlistAddPhoto(selectedDataId, image.uri);
+    console.log(image,selectedDataId);
+    this.props.playlistAddPhoto(selectedDataId, image.uri);
   }
 
   selectPlaylist(entry){
@@ -45,7 +46,7 @@ class MyPhotos extends Component {
   }
 
   render() {
-    console.log(this.props.playlists);
+
     if ( !this.state.isCameraLoaded || _.isEmpty(this.props.playlists)) {
       return (
         <View style={styles.spinnerContainer}>

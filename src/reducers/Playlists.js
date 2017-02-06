@@ -29,10 +29,13 @@ export default (state = INITIAL_STATE, action) => {
       };
 
     case PLAYLISTS_ADD_PHOTO:
-      return {
-        ...state,
-        [action.payload.prop]: action.payload.value
-      };
+
+    console.log(action);
+    state.playlists.map((playlist) => {
+      playlist.id === action.payload.prop && playlist.photos.unshift(action.payload.value)
+      return playlist
+    });
+    return state;
 
     case PLAYLISTS_DELETE:
       return INITIAL_STATE;

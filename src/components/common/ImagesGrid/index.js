@@ -8,6 +8,8 @@ import {
     Image,
 } from 'react-native';
 
+const no_image = require('./noimage.jpg')
+
 const {width, height} = Dimensions.get('window');
 
 export default class ImagesGrid extends Component {
@@ -21,6 +23,13 @@ export default class ImagesGrid extends Component {
         }
         const imageCount = images.length;
         switch(imageCount) {
+            case 0:
+                return (
+                    <View style={styles.imageContainer}>
+                        <Image style={styles.img} source={ no_image } />
+                    </View>
+                );
+            break;
             //1 image
             case 1:
                 return (

@@ -26,7 +26,7 @@ export const playlistDelete = ({ prop, value }) => {
   };
 };
 
-export const playlistAddPhoto = ({ prop, value }) => {
+export const playlistAddPhoto = (prop, value) => {
   return {
     type: PLAYLISTS_ADD_PHOTO,
     payload: { prop, value }
