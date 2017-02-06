@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { CameraRoll } from 'react-native';
-import { View, Tabs,  Spinner } from 'native-base';
+import { View, Spinner } from 'native-base';
+import { connect } from 'react-redux';
 import Swipe from './sub/swipe';
 
 import Layout from '../../layout';
 
-export default class MyPhotos extends Component {
+class MyPhotos extends Component {
 
   constructor(props) {
     super(props);
@@ -35,7 +36,7 @@ export default class MyPhotos extends Component {
     if (!this.state.isCameraLoaded) {
       return (
         <View style={styles.spinnerContainer}>
-          <Spinner color="#ff8900"/>
+          <Spinner color="#ff8900" />
         </View>
         );
     }
@@ -43,15 +44,15 @@ export default class MyPhotos extends Component {
     return (
 
         <Layout>
-          <Tabs>
-            <Swipe tabLabel='Swipe' images={this.state.images} />
-            <Swipe tabLabel='Select' images={this.state.images}/>
-          </Tabs>
+            <Swipe tabLabel='Swipe' images={this.state.images} playlists={this.props.playlists} />
         </Layout>
 
     );
   }
 }
+
+export default connect(
+  state => ({ playlists: state.Playlists.playlists }))(MyPhotos);
 
 const styles = {
   spinnerContainer: {

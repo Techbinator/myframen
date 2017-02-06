@@ -1,39 +1,34 @@
 import React, { Component, PropTypes } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from './SliderEntry.style';
+import ImagesGrid from '../../../../common/ImagesGrid';
 
 export default class SliderEntry extends Component {
 
     static propTypes = {
         title: PropTypes.string.isRequired,
-        subtitle: PropTypes.string,
-        illustration: PropTypes.string,
+        images: PropTypes.array,
         even: PropTypes.bool
     };
 
     render () {
-        const { title, subtitle, illustration, even } = this.props;
-
+        const { title, images, even } = this.props;
         const uppercaseTitle = title ? (
-            <Text style={[styles.title, even ? styles.titleEven : {}]} numberOfLines={2}>{ title.toUpperCase() }</Text>
+            <Text style={[styles.title, even ? styles.titleEven : {}]} numberOfLines={2}>{ title }</Text>
         ) : false;
 
         return (
             <TouchableOpacity
               activeOpacity={0.7}
               style={styles.slideInnerContainer}
-              onPress={() => { alert(`You've clicked '${title}'`); }}
+              onPress={() => {}}
               >
                 <View style={[styles.imageContainer, even ? styles.imageContainerEven : {}]}>
-                    <Image
-                      source={{ uri: illustration }}
-                      style={styles.image}
-                    />
+                    <ImagesGrid images={images} title={title} />
                     <View style={[styles.radiusMask, even ? styles.radiusMaskEven : {}]} />
                 </View>
                 <View style={[styles.textContainer, even ? styles.textContainerEven : {}]}>
                     { uppercaseTitle }
-                    <Text style={[styles.subtitle, even ? styles.subtitleEven : {}]} numberOfLines={2}>{ subtitle }</Text>
                 </View>
             </TouchableOpacity>
         );
