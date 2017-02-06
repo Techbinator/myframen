@@ -46,7 +46,7 @@ class Playlist extends Component {
   }
 
   filterCollection(){
-    let playlists = _.orderBy(this.props.playlists, ['id'], ['desc']);;
+    let playlists = _.orderBy(this.props.playlists, ['id'], ['desc']);
     const selectedFilter = _.find(this.state.filters, { "active": true }).key;
     return playlists.filter((playlist) => {
 

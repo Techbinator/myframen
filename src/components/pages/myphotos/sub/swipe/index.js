@@ -10,18 +10,14 @@ import SliderEntry from './SliderEntry';
 import styles from './index.style';
 
 
-export default class Swipe extends Component {
 
-    state = {
-      selectedPlaylist: 0,
-    }
+export default class Swipe extends Component {
 
     getSlides() {
           return this.props.playlists.map((entry, index) => {
               return (
                   <SliderEntry
-                    key={entry.id}
-                    cardKey={entry.id}
+                    key={index}
                     even={(index + 1) % 2 === 0}
                     title={entry.playlistName}
                     images={entry.photos}
@@ -44,16 +40,11 @@ export default class Swipe extends Component {
           showsHorizontalScrollIndicator={false}
           snapOnAndroid={true}
           removeClippedSubviews={false}
-          onSnapToItem={(entry) => this.setState({'selectedPlaylist': entry })}
+          onSnapToItem={this.props.selectPlaylist.bind(this)}
         >
             { this.getSlides() }
         </Carousel>
     );
-}
-
-handleYup(card){
-  const selectedDataId = this.props.playlists[this.state.selectedPlaylist].id;
-  console.log(selectedDataId);
 }
 
 handleNope(){
@@ -63,14 +54,14 @@ handleNope(){
   render(){
     return (
       <View>
-        <View>
+        <View style={{padding:10, flex:1, marginBottom:10, elevation: 3}}>
           <SwipeCards
             cards={this.props.images}
 
-            renderCard={(image) => <Image style={{height:300, width: sliderWidth, marginBottom:20}} source={{ uri: image.uri }} />}
+            renderCard={(image) => <Image style={{height:300, width: sliderWidth - 20, borderRadius: 10, borderWidth: 1, borderColor:"#fff"}} source={{ uri: image.uri }} />}
             renderNoMoreCards={() => <Text>No more cards</Text>}
 
-            handleYup={this.handleYup.bind(this)}
+            handleYup={this.props.handleYup.bind(this)}
             handleNope={this.handleNope}
           />
         </View>

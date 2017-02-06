@@ -1,7 +1,10 @@
+import _ from 'lodash';
+
 import {
   PLAYLISTS_CREATE,
   PLAYLISTS_UPDATE,
   PLAYLISTS_DELETE,
+  PLAYLISTS_ADD_PHOTO,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -24,6 +27,13 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         [action.payload.prop]: action.payload.value
       };
+
+    case PLAYLISTS_ADD_PHOTO:
+      return {
+        ...state,
+        [action.payload.prop]: action.payload.value
+      };
+
     case PLAYLISTS_DELETE:
       return INITIAL_STATE;
     default:

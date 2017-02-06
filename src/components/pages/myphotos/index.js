@@ -4,6 +4,7 @@ import { View, Spinner } from 'native-base';
 import { connect } from 'react-redux';
 import Swipe from './sub/swipe';
 import _ from 'lodash';
+import { playlistAddPhoto } from '../../../actions';
 
 import Layout from '../../layout';
 
@@ -13,7 +14,8 @@ class MyPhotos extends Component {
     super(props);
     this.state = {
      images: [],
-     isCameraLoaded: false
+     isCameraLoaded: false,
+     selectedPlaylist: 0
     };
   }
 
@@ -33,8 +35,18 @@ class MyPhotos extends Component {
     );
   }
 
+  handleYup(image){
+    const selectedDataId = this.props.playlists[this.state.selectedPlaylist].id;
+    // this.props.playlistAddPhoto(selectedDataId, image.uri);
+  }
+
+  selectPlaylist(entry){
+    this.setState({'selectedPlaylist': entry });
+  }
+
   render() {
-    if (!this.state.isCameraLoaded) {
+    console.log(this.props.playlists);
+    if ( !this.state.isCameraLoaded || _.isEmpty(this.props.playlists)) {
       return (
         <View style={styles.spinnerContainer}>
           <Spinner color="#ff8900" />
@@ -45,15 +57,30 @@ class MyPhotos extends Component {
     return (
 
         <Layout>
-            <Swipe tabLabel='Swipe' images={this.state.images} playlists={this.props.playlists} />
+            <Swipe tabLabel='Swipe'
+              images={this.state.images}
+              playlists={this.props.playlists}
+              handleYup={this.handleYup.bind(this)}
+              selectPlaylist={this.selectPlaylist.bind(this)}
+            />
         </Layout>
 
     );
   }
 }
 
-export default connect(
-  state => ({ playlists: _.orderBy(state.Playlists.playlists, ['id'], ['desc']) }))(MyPhotos);
+MyPhotos.defaultProps = {
+  playlists: []
+};
+
+  export default connect(
+    state => ({
+      playlists: _.orderBy(state.Playlists.playlists, ['id'], ['desc'])
+    }),
+    {
+      playlistAddPhoto
+    }
+  )(MyPhotos);
 
 const styles = {
   spinnerContainer: {
