@@ -57,7 +57,7 @@ class MyPhotos extends Component {
       return (
         <Layout>
           <View style={styles.spinnerContainer}>
-            <Button bordered warning block onPress={Actions.NewPlaylist}>
+            <Button bordered warning block onPress={() => Actions.NewPlaylist()}>
                 <Icon name='ios-images-outline' />
                 <Text style={{color: '#ffffff'}}>Create a playlist first</Text>
             </Button>
