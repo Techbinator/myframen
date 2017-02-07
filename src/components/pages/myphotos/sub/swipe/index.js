@@ -59,7 +59,7 @@ handleNope(){
             cards={this.props.images}
 
             renderCard={(image) => <Image style={{height:300, width: sliderWidth - 20, borderRadius: 10, borderWidth: 1, borderColor:"#fff"}} source={{ uri: image.uri }} />}
-            renderNoMoreCards={() => <Text>No more cards</Text>}
+            renderNoMoreCards={() => <Text style={{color: '#ffffff'}}>No more cards</Text>}
 
             handleYup={this.props.handleYup.bind(this)}
             handleNope={this.handleNope}

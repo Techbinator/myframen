@@ -16,8 +16,8 @@ export default (state = INITIAL_STATE, action) => {
     case PLAYLISTS_CREATE:
       return {
         ...state,
-        ['playlists']: [
-          ...state['playlists'],
+        playlists: [
+          ...state.playlists,
           action.payload.value
         ]
       };
@@ -30,12 +30,14 @@ export default (state = INITIAL_STATE, action) => {
 
     case PLAYLISTS_ADD_PHOTO:
 
-    console.log(action);
-    state.playlists.map((playlist) => {
+    const playlists = state.playlists.map((playlist) => {
       playlist.id === action.payload.prop && playlist.photos.unshift(action.payload.value)
       return playlist
     });
-    return state;
+    return {
+      ...state,
+      playlist: playlists
+    }
 
     case PLAYLISTS_DELETE:
       return INITIAL_STATE;

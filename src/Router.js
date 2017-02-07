@@ -18,8 +18,8 @@ const RouterComponent = () => {
       <Scene key="tabBar" tabs tabBarStyle={styles.tabBarStyle}>
         <Scene key="Inspiration" component={Inspiration} title="Inspiration" icon={FooterTabLayout} />
         <Scene key="Favorites" component={MyPhotos} title="Favorites" icon={FooterTabLayout} />
-        <Scene key="MyPhotos" component={MyPhotos} title="My photos" initial icon={FooterTabLayout} />
-        <Scene key="PlaylistHolder" title="Playlist" icon={FooterTabLayout} barButtonIconStyle={{ tintColor: '#FF8900' }}>
+        <Scene key="MyPhotos" component={MyPhotos} title="My photos" icon={FooterTabLayout} />
+        <Scene key="PlaylistHolder" title="Playlist" icon={FooterTabLayout} initial barButtonIconStyle={{ tintColor: '#FF8900' }}>
           <Scene
             key="Playlists"
             component={Playlist}

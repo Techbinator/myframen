@@ -83,7 +83,7 @@ export default {
     brandInfo: '#5bc0de',
     brandSuccess: '#5cb85c',
     brandDanger: '#d9534f',
-    brandWarning: '#f0ad4e',
+    brandWarning: '#ff8900',
     brandSidebar: '#252932',
 
 

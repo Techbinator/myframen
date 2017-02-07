@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Picker, Alert } from 'react-native';
+import { View, Picker, Alert, Platform } from 'react-native';
 import { List, ListItem, InputGroup, Input, Icon, Text } from 'native-base';
 import { Slider } from 'nachos-ui';
 import { Actions } from 'react-native-router-flux';
@@ -77,7 +77,8 @@ class NewPlaylist extends Component {
           <ListItem>
             <View>
               <Text style={styles.text}>Slider type</Text>
-              <Picker style={styles.picker}
+              <Picker
+                style={styles.picker, Platform.OS === 'android' && {color: '#ffffff'}}
                 itemStyle={styles.iosItemStyle}
                 selectedValue={this.state.playlistAnimation}
                 onValueChange={(sa) => this.setState({playlistAnimation: sa})}>

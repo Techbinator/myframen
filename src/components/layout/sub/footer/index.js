@@ -15,10 +15,10 @@ export default class FooterTabLayout extends Component {
          IconName = 'ios-heart';
         break;
       case 'MyPhotos':
-         IconName = 'ios-images';
+         IconName = 'ios-image';
         break;
       case 'Playlist':
-         IconName = 'ios-list-box';
+         IconName = 'ios-images-outline';
         break;
       case 'Chats':
          IconName = 'ios-chatbubbles';

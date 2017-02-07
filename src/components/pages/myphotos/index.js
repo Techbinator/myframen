@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { CameraRoll } from 'react-native';
-import { View, Spinner } from 'native-base';
+import { CameraRoll, Text } from 'react-native';
+import { View, Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 import Swipe from './sub/swipe';
 import _ from 'lodash';
 import { playlistAddPhoto } from '../../../actions';
@@ -37,7 +38,6 @@ class MyPhotos extends Component {
 
   handleYup(image){
     const selectedDataId = this.props.playlists[this.state.selectedPlaylist].id;
-    console.log(image,selectedDataId);
     this.props.playlistAddPhoto(selectedDataId, image.uri);
   }
 
@@ -47,11 +47,22 @@ class MyPhotos extends Component {
 
   render() {
 
-    if ( !this.state.isCameraLoaded || _.isEmpty(this.props.playlists)) {
+    if ( !this.state.isCameraLoaded) {
       return (
         <View style={styles.spinnerContainer}>
           <Spinner color="#ff8900" />
         </View>
+        );
+    } else if(_.isEmpty(this.props.playlists)){
+      return (
+        <Layout>
+          <View style={styles.spinnerContainer}>
+            <Button bordered warning block onPress={Actions.NewPlaylist}>
+                <Icon name='ios-images-outline' />
+                <Text style={{color: '#ffffff'}}>Create a playlist first</Text>
+            </Button>
+          </View>
+        </Layout>
         );
     }
 
