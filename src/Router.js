@@ -4,6 +4,7 @@ import { StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import MyPhotos from './components/pages/myphotos';
 import Inspiration from './components/pages/inspiration';
+import Favorites from './components/pages/favorites';
 import Playlist from './components/pages/playlist';
 import newPlaylist from './components/pages/playlist/sub/newplaylist';
 import FooterTabLayout from './components/layout/sub/footer';
@@ -16,10 +17,10 @@ const RouterComponent = () => {
   return (
     <RouterWithRedux hideNavBar>
       <Scene key="tabBar" tabs tabBarStyle={styles.tabBarStyle}>
-        <Scene key="Inspiration" component={Inspiration} title="Inspiration" icon={FooterTabLayout} />
-        <Scene key="Favorites" component={MyPhotos} title="Favorites" icon={FooterTabLayout} />
+        <Scene key="Inspiration" component={Inspiration} title="Inspiration" initial icon={FooterTabLayout} />
+        <Scene key="Favorites" component={Favorites} title="Favorites" icon={FooterTabLayout} />
         <Scene key="MyPhotos" component={MyPhotos} title="My photos" icon={FooterTabLayout} />
-        <Scene key="PlaylistHolder" title="Playlist" icon={FooterTabLayout} initial barButtonIconStyle={{ tintColor: '#FF8900' }}>
+        <Scene key="PlaylistHolder" title="Playlist" icon={FooterTabLayout} barButtonIconStyle={{ tintColor: '#FF8900' }}>
           <Scene
             key="Playlists"
             component={Playlist}
@@ -44,7 +45,6 @@ const RouterComponent = () => {
             titleStyle={styles.titleStyle}
           />
         </Scene>
-        <Scene key="Chats" component={Inspiration} title="Chats" icon={FooterTabLayout} />
       </Scene>
     </RouterWithRedux>
   );

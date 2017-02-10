@@ -122,10 +122,10 @@ export default {
 
     // Header
     iosToolbarBtnColor: '#ff8900',
-    toolbarDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#ff8900',
+    toolbarDefaultBg: (Platform.OS === 'ios' ) ? '#2B2B2B' : '#2B2B2B',
     toolbarHeight: (Platform.OS === 'ios' ) ? 64 : 56,
     toolbarIconSize: (Platform.OS === 'ios' ) ? 20 : 22,
-    toolbarInputColor: '#CECDD2',
+    toolbarInputColor: '#ffffff',
     toolbarInverseBg: '#222',
     toolbarTextColor: (Platform.OS==='ios') ? '#000' : '#fff',
     get statusBarColor() {

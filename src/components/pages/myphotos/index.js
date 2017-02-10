@@ -3,7 +3,7 @@ import { CameraRoll, Text } from 'react-native';
 import { View, Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-import Swipe from './sub/swipe';
+import Swipe from '../../common/swipe';
 import _ from 'lodash';
 import { playlistAddPhoto } from '../../../actions';
 

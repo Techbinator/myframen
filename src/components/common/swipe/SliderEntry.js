@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from './SliderEntry.style';
-import ImagesGrid from '../../../../common/ImagesGrid';
+import ImagesGrid from '../ImagesGrid';
 
 export default class SliderEntry extends Component {
 
