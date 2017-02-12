@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Image, ScrollView, Text, StyleSheet } from 'react-native';
+import { ScrollView, Text, StyleSheet } from 'react-native';
+import Image from 'react-native-image-progress';
+import ProgressBar from 'react-native-progress/Bar';
 import { View } from 'native-base';
 import Carousel from 'react-native-snap-carousel';
 import SwipeCards from 'react-native-swipe-cards';
@@ -58,7 +60,7 @@ handleNope(){
           <SwipeCards
             cards={this.props.images}
 
-            renderCard={(image) => <Image style={{height:300, width: sliderWidth - 20, borderRadius: 10, borderWidth: 1, borderColor:"#fff"}} source={{ uri: image.uri }} />}
+            renderCard={(image) => <Image indicator={() => <ProgressBar color="#ff8900"/>} style={{height:300, width: sliderWidth - 20, borderRadius: 10, borderWidth: 1, borderColor:"#fff"}} source={{ uri: image.uri }} />}
             renderNoMoreCards={() => <Text style={{color: '#ffffff'}}>No more cards</Text>}
 
             handleYup={this.props.handleYup.bind(this)}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Header, InputGroup, Input, Icon, Button, Spinner, View } from 'native-base';
-import { Text } from 'react-native';
+import { Text, Keyboard } from 'react-native';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { MessageBar,MessageBarManager } from 'react-native-message-bar';
@@ -48,7 +48,7 @@ class Inspiration extends Component {
         alt:'json',
         safe:'high',
         fileType:'jpg',
-        //ImgSize:'huge' just in case
+        ImgSize:'xxlarge'
       }
     })
     .then( (response) => {
@@ -60,17 +60,17 @@ class Inspiration extends Component {
           message: 'No results',
           alertType: 'warning',
         });
-        this.setState({spinner: false, images: filteredItems});
+        this.setState({spinner: false, images: []});
         return;
       }
 
-      const filteredItems = _.map(items, function(value, key) {
+      _.map(items, function(value, key) {
         value.uri = value.link;
         delete value.link;
         return value;
       });
 
-      this.setState({spinner: false, images: filteredItems});
+      this.setState({spinner: false, images: items});
     })
     .catch( (error) => {
       MessageBarManager.showAlert({
@@ -92,6 +92,7 @@ class Inspiration extends Component {
       });
       return;
     }
+    Keyboard.dismiss();
     this.getImages.call(this)
 
   }
@@ -141,8 +142,8 @@ class Inspiration extends Component {
           <Header searchBar rounded>
               <InputGroup>
                   <Icon name="ios-search" />
-                  <Input placeholder="Search" onChangeText={ searchedTerm => this.setState({searchedTerm: searchedTerm }) } />
-                  <Icon name="ios-people" />
+                  <Input placeholder="Search" onSubmitEditing={this.onSearch.bind(this)} onChangeText={ searchedTerm => this.setState({searchedTerm: searchedTerm }) } />
+                  <Icon name="ios-images" />
               </InputGroup>
               <Button transparent onPress={this.onSearch.bind(this)}>
                   Search
