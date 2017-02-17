@@ -21,7 +21,7 @@ class MyPhotos extends Component {
   }
 
   componentWillMount() {
-    CameraRoll.getPhotos({ first: 1000 }).then(
+    CameraRoll.getPhotos({ first: 50 }).then(
       (data) => {
         const assets = data.edges;
         const images = assets.map((asset) => asset.node.image);

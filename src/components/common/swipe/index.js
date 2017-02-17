@@ -62,6 +62,7 @@ handleNope(){
 
             renderCard={(image) => <Image indicator={() => <ProgressBar color="#ff8900"/>} style={{height:300, width: sliderWidth - 20, borderRadius: 10, borderWidth: 1, borderColor:"#fff"}} source={{ uri: image.uri }} />}
             renderNoMoreCards={() => <Text style={{color: '#ffffff'}}>No more cards</Text>}
+            smoothTransition
 
             handleYup={this.props.handleYup.bind(this)}
             handleNope={this.handleNope}
