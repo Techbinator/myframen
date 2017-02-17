@@ -7,9 +7,8 @@ import Carousel from 'react-native-snap-carousel';
 import SwipeCards from 'react-native-swipe-cards';
 import _ from 'lodash';
 
-import sliderEntryStyles, { sliderWidth, itemWidth } from './SliderEntry.style';
+import styles, { sliderWidth, itemWidth, slideHeight } from './index.style';
 import SliderEntry from './SliderEntry';
-import styles from './index.style';
 
 
 
@@ -36,11 +35,11 @@ export default class Swipe extends Component {
           firstItem={0}
           inactiveSlideScale={0.94}
           inactiveSlideOpacity={0.6}
-          enableMomentum={true}
-          containerCustomStyle={styles.slider}
+          enableMomentum
+          containerCustomStyle={styles.sliderContainer}
           contentContainerCustomStyle={styles.sliderContainer}
           showsHorizontalScrollIndicator={false}
-          snapOnAndroid={true}
+          snapOnAndroid
           removeClippedSubviews={false}
           onSnapToItem={this.props.selectPlaylist.bind(this)}
         >
@@ -55,12 +54,12 @@ handleNope(){
 
   render(){
     return (
-      <View>
-        <View style={{padding:10, flex:1, marginBottom:10, elevation: 3}}>
+      <View style={{ flexDirection: 'column', justifyContent: 'space-between', flex:1}}>
+        <View style={{padding:10, flex:2, marginBottom:10, elevation: 3}}>
           <SwipeCards
             cards={this.props.images}
 
-            renderCard={(image) => <Image indicator={() => <ProgressBar color="#ff8900"/>} style={{height:300, width: sliderWidth - 20, borderRadius: 10, borderWidth: 1, borderColor:"#fff"}} source={{ uri: image.uri }} />}
+            renderCard={(image) => <Image indicator={() => <ProgressBar color="#ff8900"/>} style={{flex:1, width: sliderWidth - 20, borderRadius: 10, borderWidth: 1, borderColor:"#fff"}} source={{ uri: image.uri }} />}
             renderNoMoreCards={() => <Text style={{color: '#ffffff'}}>No more cards</Text>}
             smoothTransition
 
@@ -68,7 +67,7 @@ handleNope(){
             handleNope={this.handleNope}
           />
         </View>
-        <View>
+        <View style={{flex:1}}>
           <ScrollView
             style={styles.scrollview}
             indicatorStyle={'white'}
