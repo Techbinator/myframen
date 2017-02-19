@@ -14,7 +14,7 @@ export default class SliderEntry extends Component {
     render () {
         const { title, images, even } = this.props;
         const uppercaseTitle = title ? (
-            <Text style={[styles.title, even ? styles.titleEven : {}]} numberOfLines={2}>{ title }</Text>
+            <Text style={[styles.title]} numberOfLines={2}>{ title }</Text>
         ) : false;
 
         return (
@@ -23,13 +23,14 @@ export default class SliderEntry extends Component {
               style={styles.slideInnerContainer}
               onPress={() => {}}
               >
-                <View style={[styles.imageContainer, even ? styles.imageContainerEven : {}]}>
-                    <ImagesGrid images={images} title={title} />
-                    <View style={[styles.radiusMask, even ? styles.radiusMaskEven : {}]} />
+              <View style={[styles.textContainer]}>
+                  { uppercaseTitle }
+              </View>
+                <View style={[styles.imageContainer]}>
+                    <ImagesGrid images={images} title={title} imageContainerHeight={this.props.imageContainerHeight} />
+                    <View style={[styles.radiusMask]} />
                 </View>
-                <View style={[styles.textContainer, even ? styles.textContainerEven : {}]}>
-                    { uppercaseTitle }
-                </View>
+
             </TouchableOpacity>
         );
     }

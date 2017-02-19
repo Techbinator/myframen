@@ -3,6 +3,7 @@ import { StyleSheet, Dimensions, Platform } from 'react-native';
 export const colors = {
     black: '#1a1917',
     gray: '#ff8900',
+    orange: '#ff8900',
     background1: 'hsl(15, 55%, 50%)',
     background2: 'hsl(230, 30%, 45%)'
 };
@@ -61,20 +62,15 @@ export default StyleSheet.create({
     },
     textContainer: {
         justifyContent: 'center',
-        paddingTop: 10 - entryBorderRadius,
-        paddingBottom: 20,
-        paddingHorizontal: 20,
+        paddingHorizontal: 10,
         backgroundColor: 'white',
-        borderBottomLeftRadius: entryBorderRadius,
-        borderBottomRightRadius: entryBorderRadius
     },
     textContainerEven: {
-        backgroundColor: colors.black
+        backgroundColor: colors.orange
     },
     title: {
-        color: colors.black,
+        color: colors.orange,
         fontSize: 13,
-        fontWeight: 'bold',
         letterSpacing: 0.5
     },
     titleEven: {

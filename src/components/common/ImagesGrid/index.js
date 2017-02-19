@@ -16,16 +16,18 @@ export default class ImagesGrid extends Component {
 
 
     renderImages() {
-        const { images } = this.props;
+        const { images, imageContainerHeight } = this.props;
 
         if(!images){
           return null;
         }
+        const imageContainerStyles = { height: imageContainerHeight ? height/imageContainerHeight : height/2.5};
+
         const imageCount = images.length;
         switch(imageCount) {
             case 0:
                 return (
-                    <View style={styles.imageContainer}>
+                    <View style={imageContainerStyles}>
                         <Image style={styles.img} source={ no_image } />
                     </View>
                 );
@@ -33,7 +35,7 @@ export default class ImagesGrid extends Component {
             //1 image
             case 1:
                 return (
-                    <View style={styles.imageContainer}>
+                    <View style={imageContainerStyles}>
                         <Image style={styles.img} source={{uri:images[0]}}/>
                     </View>
                 );
@@ -42,7 +44,7 @@ export default class ImagesGrid extends Component {
             case 2:
                 return(
                     <TouchableWithoutFeedback onPress={this.openImages.bind(this)}>
-                        <View style={styles.imageContainer}>
+                        <View style={imageContainerStyles}>
                             <Image style={[styles.img, {marginBottom: 4}]} source={{uri:images[0]}}/>
                             <Image style={styles.img} source={{uri:images[1]}}/>
                         </View>
@@ -52,7 +54,7 @@ export default class ImagesGrid extends Component {
             case 3:
                 return(
                     <TouchableWithoutFeedback onPress={this.openImages.bind(this)}>
-                        <View style={styles.imageContainer}>
+                        <View style={imageContainerStyles}>
                             <Image style={[styles.img, {marginBottom: 4}]} source={{uri:images[0]}}/>
                             <View style={{flexDirection: 'row', flex: 1}}>
                                 <Image style={[styles.img, {marginRight: 2}]} source={{uri:images[1]}}/>
@@ -65,7 +67,7 @@ export default class ImagesGrid extends Component {
             case 4:
                 return(
                     <TouchableWithoutFeedback onPress={this.openImages.bind(this)}>
-                        <View style={styles.imageContainer}>
+                        <View style={imageContainerStyles}>
                             <View style={{flexDirection: 'row', flex: 1, marginBottom: 4}}>
                                 <Image style={[styles.img, {marginRight: 2}]} source={{uri:images[0]}}/>
                                 <Image style={[styles.img, {marginLeft: 2}]} source={{uri:images[1]}}/>
@@ -81,7 +83,7 @@ export default class ImagesGrid extends Component {
             case 5:
                 return(
                     <TouchableWithoutFeedback onPress={this.openImages.bind(this)}>
-                        <View style={styles.imageContainer}>
+                        <View style={imageContainerStyles}>
                             <View style={{flexDirection: 'row', flex: 1, marginBottom: 4}}>
                                 <Image style={[styles.img, {marginRight: 2}]} source={{uri:images[0]}}/>
                                 <Image style={[styles.img, {marginLeft: 2}]} source={{uri:images[1]}}/>
@@ -100,7 +102,7 @@ export default class ImagesGrid extends Component {
                 //@TODO render images with more than 6
                 return(
                     <TouchableWithoutFeedback onPress={this.openImages.bind(this)}>
-                        <View style={styles.imageContainer}>
+                        <View style={imageContainerStyles}>
                             <View style={{flexDirection: 'row', flex: 1, marginBottom: 4}}>
                                 <Image style={[styles.img, {marginRight: 2}]} source={{uri:images[0]}}/>
                                 <Image style={[styles.img, {marginLeft: 2}]} source={{uri:images[1]}}/>
@@ -143,12 +145,6 @@ export default class ImagesGrid extends Component {
 
 const styles = {
 
-  container:{
-
-  },
-  imageContainer: {
-      height: height/2.5,
-  },
   img: {
       flex: 1,
       width: null,

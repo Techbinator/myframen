@@ -27,7 +27,7 @@ class MyPhotos extends Component {
         const images = assets.map((asset) => asset.node.image);
         this.setState({
           isCameraLoaded: true,
-          images: images
+          images
         });
       },
       (error) => {
@@ -74,6 +74,7 @@ class MyPhotos extends Component {
               playlists={this.props.playlists}
               handleYup={this.handleYup.bind(this)}
               selectPlaylist={this.selectPlaylist.bind(this)}
+              imageContainerHeight={3.5}
             />
         </Layout>
 

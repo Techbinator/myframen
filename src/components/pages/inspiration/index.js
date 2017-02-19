@@ -131,6 +131,7 @@ class Inspiration extends Component {
         playlists={this.props.playlists}
         handleYup={this.handleYup.bind(this)}
         selectPlaylist={this.selectPlaylist.bind(this)}
+        imageContainerHeight={3.5}
       />
      )
     }

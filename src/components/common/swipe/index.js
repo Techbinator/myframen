@@ -22,6 +22,7 @@ export default class Swipe extends Component {
                     even={(index + 1) % 2 === 0}
                     title={entry.playlistName}
                     images={entry.photos}
+                    imageContainerHeight={this.props.imageContainerHeight}
                   />
               );
           });
@@ -55,7 +56,7 @@ handleNope(){
   render(){
     return (
       <View style={{ flexDirection: 'column', justifyContent: 'space-between', flex:1}}>
-        <View style={{padding:10, flex:2, marginBottom:10, elevation: 3}}>
+        <View style={{padding:10, flex:3, marginBottom:10, elevation: 3}}>
           <SwipeCards
             cards={this.props.images}
 
@@ -67,7 +68,7 @@ handleNope(){
             handleNope={this.handleNope}
           />
         </View>
-        <View style={{flex:1}}>
+        <View style={{flex:2}}>
           <ScrollView
             style={styles.scrollview}
             indicatorStyle={'white'}
